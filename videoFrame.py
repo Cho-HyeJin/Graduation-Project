@@ -17,7 +17,8 @@ cv2.destroyAllWindows()'''
 import cv2
  
 # 영상의 의미지를 연속적으로 캡쳐할 수 있게 하는 class
-vidcap = cv2.VideoCapture("test2.mp4") #('파일 이름')
+vidcap = cv2.VideoCapture("testVideo.mp4") #('파일 이름')
+vidcap.set(cv2.CAP_PROP_POS_MSEC, 10000) #1sec = 1000ms
  
 count = 0
  
@@ -28,14 +29,14 @@ while(vidcap.isOpened()):
     ret, image = vidcap.read()
  
     # 캡쳐된 이미지를 저장하는 함수, 파일 이름 frame1,2,3 ---
-    cv2.imwrite("frame%d.jpg" % count, image)
+    cv2.imwrite("Frame%d.jpg" % count, image)
  
     print('Saved frame%d.jpg' % count)
     count += 1
 
-#이미지  출력 장수 설정
+'''#이미지  출력 장수 설정
     if count == 10:  #10장만 출력
-        break
+        break'''
  
 vidcap.release()
 
