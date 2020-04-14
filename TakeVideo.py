@@ -21,7 +21,7 @@ with picamera.PiCamera() as camera: #Create a PyCamera Object
 with picamera.PiCamera() as camera: #Create a PyCamera Object
     camera.resolution = (640,480)  #Camera quality settings
     now = datetime.datetime.now()
-    fileName = now.strftime('%Y-%m-%d %H:&M:&s')
+    fileName = now.strftime('%Y-%m-%d %H:&M:&s') #Set file name
     camera.start_recording(output = fileName + '.h264')  #Start recoding
     camera.wait_recording(5) #during 5 sec
     camera.stop_recording() #Stop recoding
